@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  get '/room_histroies', to: 'room_histories#new'
+  get '/room_histories', to: 'room_histories#new'
 
   get '/rooms', to: 'rooms#new'
 
@@ -8,7 +8,9 @@ Rails.application.routes.draw do
 
 #  get 'members/new'
 resources :members
- 
+resources :rooms
+resources :roomhistories
+
 root 'welcome#index'
 get  '/signup',  to: 'members#new'
 post '/signup',  to: 'members#create'
