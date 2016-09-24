@@ -1,0 +1,2 @@
+module RoomHistroiesHelper
+end

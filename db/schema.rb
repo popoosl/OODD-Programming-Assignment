@@ -10,7 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20160924034904) do
+=======
+ActiveRecord::Schema.define(version: 20160924020928) do
+>>>>>>> 48195946408f559cdafa43885e9d15c9233bafab
 
   create_table "members", force: :cascade do |t|
     t.string   "username"
@@ -21,6 +25,24 @@ ActiveRecord::Schema.define(version: 20160924034904) do
     t.boolean  "admin",           default: false
     t.boolean  "superadmin",      default: false
     t.index ["email"], name: "index_members_on_email", unique: true
+  end
+
+  create_table "roomhistories", force: :cascade do |t|
+    t.string   "number"
+    t.string   "userid"
+    t.date     "date"
+    t.time     "time_from"
+    t.time     "time_to"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "rooms", force: :cascade do |t|
+    t.string   "number"
+    t.string   "building"
+    t.string   "size"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end
