@@ -1,5 +1,24 @@
-<h1>Welcome#index Hello World!</h1>
-<p>Find me in app/views/welcome/index.html.erb</p>
+<h1>Welcome to the Library Application</h1>
+<p>
+<br>
+You need to login to continue.</p>
 
-<p>New member? <%= link_to "Sign up!", signup_path %></p>
-<p>Existing member?<%= link_to "Login!", login_path%></p>
+<% provide(:title, "Log in") %>
+<h1>Log in</h1>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_for(:session, url: login_path) do |f| %>
+
+        <%= f.label :email %><br>
+        <%= f.email_field :email, class: 'form-control' %>
+<br><br>
+        <%= f.label :password %><br>
+        <%= f.password_field :password, class: 'form-control' %>
+
+        <%= f.submit "Log in", class: "btn btn-primary" %>
+    <% end %>
+
+    <p>Not an existing member? <%= link_to "Sign up now!", signup_path %></p>
+  </div>
+</div

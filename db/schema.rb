@@ -10,21 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160922203148) do
-
-  create_table "articles", force: :cascade do |t|
-    t.string   "title"
-    t.text     "text"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
+ActiveRecord::Schema.define(version: 20160924034904) do
 
   create_table "members", force: :cascade do |t|
     t.string   "username"
     t.string   "email"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
     t.string   "password_digest"
+    t.boolean  "admin",           default: false
+    t.boolean  "superadmin",      default: false
     t.index ["email"], name: "index_members_on_email", unique: true
   end
 

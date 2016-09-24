@@ -2,6 +2,9 @@ class MembersController < ApplicationController
 
   before_action :logged_in_member, only: [:index, :edit, :update]
   before_action :correct_member,   only: [:edit, :update]
+  before_action :admin_member,     only: :destroy
+
+
   def index
     @member = Member.all
     end
@@ -12,11 +15,14 @@ class MembersController < ApplicationController
 
   def new
     @member=Member.new
+
   end
 
 
   def create
-    @member = Member.new(member_params)    # Not the final implementation!
+
+    @member = Member.new(member_params) # Not the final implementation!
+    @member.toggle!(:admin) if logged_in?
     if @member.save
       log_in @member
       # flash[:success] = "Welcome to the Sample App!"
@@ -41,10 +47,17 @@ class MembersController < ApplicationController
     end
   end
 
+
+  def destroy
+    Member.find(params[:id]).destroy
+    flash[:success] = "Member deleted"
+    redirect_to members_path
+  end
+
   private
   def member_params
     params.require(:member).permit(:username, :email, :password,
-                                 :password_confirmation)
+                                 :password_confirmation, :admin)
   end
 
   def logged_in_member
@@ -58,6 +71,10 @@ class MembersController < ApplicationController
   def correct_member
     @member = Member.find(params[:id])
     redirect_to(root_url) unless current_member?(@member)
+  end
+
+  def admin_member
+    redirect_to(root_url) unless current_member.admin?
   end
 
 end
