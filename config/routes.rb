@@ -1,9 +1,5 @@
 Rails.application.routes.draw do
 
-  get '/room_histories', to: 'room_histories#new'
-
-  get '/rooms', to: 'rooms#new'
-
   get 'sessions/new'
 
 #  get 'members/new'
