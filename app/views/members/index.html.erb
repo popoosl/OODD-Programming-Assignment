@@ -1,25 +1,31 @@
-<h1>Listing Members</h1>
+<h1>The Library App</h1>
+<h2>Listing Members</h2>
 
 <table>
   <thead>
   <tr>
     <th>Username</th>
-    <th>Email</th>
-    <th></th>
-    <th></th>
-    <th></th>
+    <th>Email Id</th>
   </tr>
   </thead>
 
   <tbody>
-  <% @member.each do |member| %>
-      <tr>
-        <td><%= link_to member.username, member%></td>
-      </tr>
-  <% end %>
-  </tbody>
+<% @member.each do |member| %>
+    <tr>
+      <td><%= member.username %></td>
+      <td><%= member.email %></td>
+      <td><% if current_member.admin? && !member.admin? %>
+            | <%= link_to "delete", member, method: :destroy %>
+            <% elsif current_member.superadmin? && !current_member?(member) %>
+        |  | <%= link_to "delete", member, method: :destroy %>
+        <% end %></td>
+
+    </tr>
+<% end %>
+</tbody>
 </table>
 
 <br>
 
-
+<br><br>
+<li><%= link_to "Home", current_member %></li> <span style="display:inline-block; width: 3%;"></span>
