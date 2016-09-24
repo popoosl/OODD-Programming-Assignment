@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem 'pg', '0.18.4'
 
 #bootstrap
 gem 'bootstrap-sass', '~>3.2.0'
