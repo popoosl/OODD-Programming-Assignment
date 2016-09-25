@@ -21,10 +21,8 @@
     <tr>
       <td><%= link_to member.username, member %></td>
       <td><%= member.email %></td>
-      <td><% if current_member.admin? && !member.admin? %>
+      <td><% if current_member.admin? && !member.superadmin? && !current_member?(member)%>
             | <%= link_to "delete", member, method: :destroy %>
-            <% elsif current_member.superadmin? && !current_member?(member) %>
-        |  | <%= link_to "delete", member, method: :destroy %>
         <% end %></td>
 
     </tr>
