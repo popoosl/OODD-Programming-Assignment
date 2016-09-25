@@ -4,11 +4,11 @@
 <%= link_to "Home", current_member %>
 <span style="display:inline-block; width: 3%;"></span>
 <%= link_to 'Edit', edit_member_path %>
-<span style="display:inline-block; width: 3%;"></span>   <% if current_member.admin?  %>
+<span style="display:inline-block; width: 3%;"></span>
+<% if current_member.admin?  %>
      <%= link_to "Manage Members", members_path %> <span style="display:inline-block; width: 3%;"></span>
-    <%= link_to 'Add a room', new_room_path %> <span style="display:inline-block; width: 3%;"></span>
-    <%= link_to "All rooms", rooms_path %> <span style="display:inline-block; width: 3%;"></span>
-    <%= link_to "Create new admins", new_member_path %>
+      <%= link_to "Manage rooms", rooms_path %> <span style="display:inline-block; width: 3%;"></span>
+    <%= link_to "Create new admins", new_member_path %><span style="display:inline-block; width: 3%;"></span>
     <%= link_to 'Log out', logout_path %>
     <span style="display:inline-block; width: 3%;"></span>
 <% end %>
