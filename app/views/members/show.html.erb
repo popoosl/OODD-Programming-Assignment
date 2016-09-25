@@ -9,9 +9,10 @@
      <%= link_to "Manage Members", members_path %> <span style="display:inline-block; width: 3%;"></span>
       <%= link_to "Manage rooms", rooms_path %> <span style="display:inline-block; width: 3%;"></span>
     <%= link_to "Create new admins", new_member_path %><span style="display:inline-block; width: 3%;"></span>
-    <%= link_to 'Log out', logout_path %>
-    <span style="display:inline-block; width: 3%;"></span>
+
 <% end %>
+<span style="display:inline-block; width: 3%;"></span> <%= link_to 'Log out', logout_path %>
+
 <br><br><br>
 <table>
   <thead>
@@ -24,7 +25,7 @@
       <tr>
         <td><%= @member.username %></td>
         <td><%= @member.email %></td>
-      </tr>
+          </tr>
   </tbody>
 </table>
 <br><br>

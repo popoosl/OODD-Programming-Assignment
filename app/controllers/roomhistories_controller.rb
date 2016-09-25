@@ -13,3 +13,13 @@ class RoomhistoriesController < ApplicationController
     @roomhistory = Roomhistory.all
   end
 end
+
+private
+
+def logged_in_member
+  unless logged_in?
+    store_location
+    flash[:danger] = "Please log in."
+    redirect_to login_url
+  end
+end
