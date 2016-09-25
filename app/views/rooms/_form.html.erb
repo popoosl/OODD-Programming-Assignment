@@ -1,6 +1,5 @@
 <%= form_for(@room) do |f| %>
     <%= render 'shared/error_messages', object: @room %>
-    <%= f.datetime_select :number, :ampm => false, :minute_step => 120 , class: 'form-control' %><br>
 
     <%= f.label :number %><br>
     <%= f.text_field :number, class: 'form-control' %>

@@ -4,7 +4,10 @@
 <br><br>
 <%= link_to "Home", current_member %>
 <span style="display:inline-block; width: 3%;"></span>
-<%= link_to 'Add a room', new_room_path %> <span style="display:inline-block; width: 3%;"></span>
+<% if current_member.admin? %>
+<%= link_to 'Add a room', new_room_path %>
+    <% end %>
+<span style="display:inline-block; width: 3%;"></span>
 <%= link_to 'Log out', logout_path %>
 
 <br><br>
