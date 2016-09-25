@@ -1,8 +1,8 @@
 <%= form_for(@room) do |f| %>
     <%= render 'shared/error_messages', object: @room %>
 
-    <%= f.label :number %><br>
-    <%= f.text_field :number, class: 'form-control' %>
+    <%= f.label :number,class: 'form-control' %><br>
+    <%= f.text_field :number %>
     <br><br>
     <%= f.label :size, class: 'form-control' %><br>
     <%= f.select(:size, options_for_select([['Small - 4 chairs', 'Small - 4 chairs'], ['Medium - 6 chairs', 'Medium - 6 chairs'],
