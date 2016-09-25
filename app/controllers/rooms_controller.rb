@@ -10,18 +10,34 @@ class RoomsController < ApplicationController
   end
 
   def index
-    @rooms = Room.all
+    @room = Room.all
+  end
+
+  def edit
+    @room = Room.find(params[:id])
   end
 
   def create
     @room = Room.new(room_params)
     if @room.save
       flash[:success] = "Room added!"
-      redirect_to @room
+      redirect_to rooms_path
     else
       render 'new'
     end
   end
+
+  def update
+    @room = Room.find(params[:id])
+    if @room.update_attributes(room_params)
+      # Handle a successful update.
+      flash[:success]= "Room Info updated"
+      redirect_to rooms_path
+    else
+      render 'edit'
+    end
+  end
+
 
   def destroy
     Room.find(params[:id]).destroy

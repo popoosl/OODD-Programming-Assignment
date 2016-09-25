@@ -1,4 +1,6 @@
 class RoomhistoriesController < ApplicationController
+  before_action :logged_in_member, only: [:index, :destroy]
+
   def new
     @roomhistory = Roomhistory.new
   end
