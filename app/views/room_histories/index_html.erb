@@ -1,0 +1,17 @@
+<table>
+  <thead>
+  <tr>
+    <th>Room number</th>
+    <th>Userid</th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @room_histories.each do |room_history| %>
+      <tr>
+        <td><%= room_history.number %></td>
+        <td><%= room_history.userid %></td>
+      </tr>
+  <% end %>
+  </tbody>
+</table>
