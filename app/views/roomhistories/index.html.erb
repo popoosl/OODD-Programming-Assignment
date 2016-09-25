@@ -2,7 +2,9 @@
   <thead>
   <tr>
     <th>Room number</th>
-    <th>Userid</th>
+    <th>Member Id</th>
+    <th>Booked from</th>
+
   </tr>
   </thead>
 
@@ -11,6 +13,7 @@
       <tr>
         <td><%= roomhistory.number %></td>
         <td><%= roomhistory.userid %></td>
+        <td><%= roomhistory.time_from %></td>
       </tr>
   <% end %>
   </tbody>
