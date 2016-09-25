@@ -15,9 +15,11 @@
       <td><%= member.username %></td>
       <td><%= member.email %></td>
       <td><% if current_member.admin? && !member.admin? %>
+            | <%= link_to "view booking history", historybymember_path(:userid => member.username) %>
             | <%= link_to "delete", member, method: :destroy %>
             <% elsif current_member.superadmin? && !current_member?(member) %>
-        |  | <%= link_to "delete", member, method: :destroy %>
+              | <%= link_to "view booking history", historybymember_path(:userid => member.username) %>
+              | <%= link_to "delete", member, method: :destroy %>
         <% end %></td>
 
     </tr>

@@ -1,13 +1,16 @@
 class RoomhistoriesController < ApplicationController
+
   def new
     @roomhistory = Roomhistory.new
   end
 
-  def show
-    @roomhistory = Roomhistory.find_all_by(number: room.number)
-  end
 
   def index
-    @roomhistory = Roomhistory.all
+    @roomhistory = Roomhistory.where(number: params[:number])
+    # @roomhistory = Roomhistory.where("number = ? OR userid = ?", params[:number], params[:userid])
+  end
+
+  def historybymember
+    @roomhistory = Roomhistory.where(userid: params[:userid])
   end
 end

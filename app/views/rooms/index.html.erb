@@ -16,7 +16,7 @@
         <td><%= room.size %></td>
         <td>| <%= link_to "Schedule", room, method: :schedule %></td>
         <td><% if current_member.admin? %>
-              | <%= link_to "History", roomhistories_path %>
+              | <%= link_to "History", roomhistories_path(:number => room.number) %>
               | <%= link_to "Delete", room, method: :delete, data: { confirm: "You sure?" } %>
           <% end %></td>
       </tr>
