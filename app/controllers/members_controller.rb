@@ -7,7 +7,7 @@ class MembersController < ApplicationController
 
   def index
     @member = Member.all
-    end
+  end
 
   def show
     @member= Member.find(params[:id])
