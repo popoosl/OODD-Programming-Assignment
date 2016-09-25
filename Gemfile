@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+gem 'pg', '0.18.4'
+
 gem 'rails', '~> 5.0.0', '>= 5.0.0.1'
 gem 'bootstrap-sass', '3.3.6'
 gem 'faker', '1.6.3'
