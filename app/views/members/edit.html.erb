@@ -1,6 +1,12 @@
 <% provide(:title, "Edit user") %>
 <% provide(:button_text, 'Save changes') %>
 <h1>Update your profile</h1>
+<br><br>
+
+<%= link_to "Home", current_member %> <span style="display:inline-block; width: 3%;"></span>
+<span style="display:inline-block; width: 3%;"></span>   <%= link_to 'Log out', logout_path %>
+
+<br><br>
 
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
@@ -11,5 +17,3 @@
 </div>
 
 
-<br><br>
-<li><%= link_to "Home", member_url %></li> <span style="display:inline-block; width: 3%;"></span>

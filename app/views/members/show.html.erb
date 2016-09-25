@@ -1,7 +1,10 @@
 <h1>The Library Application</h1>
 <h2>User Profile</h2>
 
-<%= link_to 'Edit', edit_member_path %>   <span style="display:inline-block; width: 3%;"></span>   <%= link_to 'Log out', logout_path %>
+<%= link_to "Home", current_member %>
+<span style="display:inline-block; width: 3%;"></span>   <%= link_to 'Log out', logout_path %>
+<span style="display:inline-block; width: 3%;"></span>
+<%= link_to 'Edit', edit_member_path %>
 <span style="display:inline-block; width: 3%;"></span>   <% if current_member.admin?  %>
      <%= link_to "Manage Members", members_path %> <span style="display:inline-block; width: 3%;"></span>
     <%= link_to 'Add a room', rooms_path %> <span style="display:inline-block; width: 3%;"></span>
@@ -25,4 +28,3 @@
   </tbody>
 </table>
 <br><br>
-<%= link_to "Home", current_member %> <span style="display:inline-block; width: 3%;"></span><%= link_to 'Back', members_path %>

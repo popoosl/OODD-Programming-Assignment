@@ -1,6 +1,13 @@
 <h1>The Library App</h1>
 <h2>Listing Members</h2>
 
+<br><br><br>
+
+<%= link_to "Home", current_member %> <span style="display:inline-block; width: 3%;"></span>
+<span style="display:inline-block; width: 3%;"></span>   <%= link_to 'Log out', logout_path %>
+
+<br><br><br><br><br><br>
+
 <table>
   <thead>
   <tr>
@@ -25,7 +32,3 @@
 </tbody>
 </table>
 
-<br>
-
-<br><br>
-<li><%= link_to "Home", current_member %></li> <span style="display:inline-block; width: 3%;"></span>
