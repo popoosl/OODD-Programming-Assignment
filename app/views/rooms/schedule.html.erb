@@ -1,0 +1,33 @@
+<h1>Room schedule</h1>
+<%= @room.number %>, <%= @room.building %>, <%= @room.size  %>, <%= @test99  %>
+
+<table>
+  <thead>
+  <tr>
+    <th>Time</th>
+    <% 7.times do |day_number| %>
+        <th><%DateTime.now + day_number.days %></th>
+    <% end %>
+  </tr>
+  </thead>
+
+  <tbody>
+
+
+
+      <tr>
+        <% begin_time = Time.new.beginning_of_day, end_time = Time.new.end_of_day %>
+        <% until begin_time == Time.new.end_of_day %>
+            <td><%= begin_time %></td>
+
+            <% begin_time = begin_time + 2*60*60 %>
+            <% end_time   = end_time + 2*60*60 %>
+            <% begin_date = DateTime.now %>
+            <% 7.times do |day_number| %>
+                <% day = begin_date + day_number.days %>
+
+            <% end %>
+        <%end %>
+      </tr>
+  </tbody>
+</table>

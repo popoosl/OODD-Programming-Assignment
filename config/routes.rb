@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 
   get 'sessions/new'
   get '/historybymember', to: 'roomhistories#historybymember'
+  get '/schedule', to: 'rooms#schedule'
 
 #  get 'members/new'
 resources :members

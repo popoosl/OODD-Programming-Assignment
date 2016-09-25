@@ -31,6 +31,7 @@ class RoomsController < ApplicationController
   end
 
   def schedule
+    @room = Room.find(params[:id])
 
   end
 
