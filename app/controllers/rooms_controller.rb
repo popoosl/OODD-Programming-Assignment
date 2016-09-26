@@ -6,6 +6,8 @@ class RoomsController < ApplicationController
   before_action :admin, only: [:create, :destroy]
 
 
+
+
   def new
     @room = Room.new
   end
