@@ -1,17 +1,17 @@
-<h1>The Library Application</h1>
+<h1>Library Rooms</h1>
 
 <h2><% provide(:title, 'Manage rooms') %></h2>
 <br><br>
-<%= link_to "Home", current_member %>
-<span style="display:inline-block; width: 3%;"></span>
+<!--<%= link_to "Home", current_member %>
+<span style="display:inline-block; width: 3%;"></span>-->
 <% if current_member.admin? %>
 <%= link_to 'Add a room', new_room_path %>
     <% end %>
-<span style="display:inline-block; width: 3%;"></span>
-<%= link_to 'Log out', logout_path %>
+<!--<span style="display:inline-block; width: 3%;"></span>
+<%= link_to 'Log out', logout_path %>-->
 
 <br><br>
-<table>
+<table style="width:100%">
   <thead>
   <tr>
     <th>Room number</th>
