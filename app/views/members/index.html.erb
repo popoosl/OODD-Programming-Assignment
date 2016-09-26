@@ -24,7 +24,7 @@
       <td><%= member.email %></td>
 
       <td>
-        <% if current_member?(member)%>
+        <% if current_member?(member) || current_member.superadmin? %>
             <%= link_to "view booking history", historybymember_path(:userid => member.username) %>
             <% end %>
             </td>
