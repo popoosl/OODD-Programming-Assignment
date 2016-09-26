@@ -1,8 +1,9 @@
 class RoomhistoriesController < ApplicationController
+
   before_action :logged_in_member, only: [:index, :create , :edit, :update,:new, :update ]
   protect_from_forgery with: :null_session
 
-
+=
   def new
     @roomhistory = Roomhistory.new
     @room = Room.all
@@ -29,6 +30,7 @@ end
     @roomhistory = Roomhistory.find_all_by(number: room.number)
   end
 
+
   def index
     @roomhistory = Roomhistory.where(number: params[:number])
     # @roomhistory = Roomhistory.where("number = ? OR userid = ?", params[:number], params[:userid])
@@ -36,6 +38,7 @@ end
 
   def historybymember
     @roomhistory = Roomhistory.where(userid: params[:userid])
+
   end
 
 
@@ -46,7 +49,22 @@ def logged_in_member
     store_location
     flash[:danger] = "Please log in."
     redirect_to login_url
+
   end
+
+  def create
+    @roomhistory = Roomhistory.new(roomhistory_params)
+    if @roomhistory.save
+      redirect_to schedule_path
+    else
+      render 'new'
+    end
+  end
+
+      private
+      def roomhistory_params
+        params.require(:roomhistory).permit(:number, :userid, :time_from, :time_to)
+      end
 end
 
   def roomhistory_params
