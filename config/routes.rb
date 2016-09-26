@@ -5,6 +5,16 @@ Rails.application.routes.draw do
   get '/rooms', to: 'rooms#index'
 
   get 'sessions/new'
+  get '/historybymember', to: 'roomhistories#historybymember'
+  get '/schedule', to: 'rooms#schedule'
+
+
+  get '/room_histories', to: 'room_histories#new'
+
+  get '/rooms', to: 'rooms#index'
+
+
+  get 'sessions/new'
 #  get 'members/new'
 resources :members
 resources :rooms

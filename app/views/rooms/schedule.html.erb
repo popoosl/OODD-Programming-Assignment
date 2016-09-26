@@ -1,0 +1,48 @@
+<h1>Room schedule</h1>
+<%= @room.number %>, <%= @room.building %>, <%= @room.size  %>, <%= @test99  %>
+
+<table>
+  <thead>
+  <tr>
+    <th>Time</th>
+    <% 7.times do |day_number| %>
+        <% datetime = Time.now + day_number.days %>
+        <th><%= datetime.strftime("%F") %></th>
+    <% end %>
+  </tr>
+  </thead>
+
+  <tbody>
+    <% begin_time = Time.new(Time.now.year, Time.now.mon, Time.now.day) %>
+    <% until begin_time.day > Time.now.day %>
+      <tr>
+        <% to_time   = begin_time + 2*60*60 - 1 %>
+
+        <td><%= begin_time.strftime("%T") + "--" + to_time.strftime("%T")%></td>
+
+        <% begin_time = begin_time + 2*60*60 %>
+
+        <% begin_date = DateTime.now %>
+
+        <% 7.times do |day_number| %>
+            <% booktime = begin_time + day_number.days %>
+            <% @book = Roomhistory.where(:time_from => booktime, :time_to => to_time)%>
+            <td>
+
+              <% if !@book.nil? %>
+                  <%= "Available"%><br>
+                  <%= link_to "Book", new_roomhistory_path(:number => @room.number,
+                                                        :time_from => booktime,
+                                                        :time_to => to_time)%>
+              <% elsif %>
+                  <%= "Booked by" %><br>
+                  <%= link_to "Cancel", rooms_path%>
+              <% end%>
+            </td>
+        <%end %>
+
+        <% begin_time = begin_time + 2*60*60 %>
+      </tr>
+    <%end %>
+  </tbody>
+</table>

@@ -23,12 +23,16 @@
   <tbody>
   <% @room.each do |room| %>
       <tr>
+
+
         <td><%= link_to room.number, room %></td>
         <td><%= link_to room.building, room %></td>
         <td><%= link_to room.size, room %></td>
-        <td>| <%= link_to "Schedule", room %></td>
+
+        <td>| <%= link_to "Schedule", schedule_path(:id => room.id) %></td>
+
         <td><% if current_member.admin? %>
-              | <%= link_to "History", roomhistories_path %>
+              | <%= link_to "History", roomhistories_path(:number => room.number) %>
               | <%= link_to "Delete", room, method: :delete, data: { confirm: "You sure?" } %>
           <% end %></td>
       </tr>
