@@ -26,7 +26,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
-  font-size: 3em;
+  font-size: 40em;
   letter-spacing: -2px;
   margin-bottom: 30px;
   text-align: center;
@@ -38,7 +38,7 @@ h2 {
   margin-bottom: 30px;
   text-align: center;
   font-weight: normal;
-  color: #777;
+  color: $gray-light;
 }
 p{
   font-size: 1.1em;
