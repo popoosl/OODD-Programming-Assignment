@@ -3,7 +3,7 @@ class RoomhistoriesController < ApplicationController
   before_action :logged_in_member, only: [:index, :create , :edit, :update,:new, :update ]
   protect_from_forgery with: :null_session
 
-=
+
   def new
     @roomhistory = Roomhistory.new
     @room = Room.all
@@ -61,8 +61,8 @@ def logged_in_member
     end
   end
 
-      private
-      def roomhistory_params
+
+     def roomhistory_params
         params.require(:roomhistory).permit(:number, :userid, :time_from, :time_to)
       end
 end

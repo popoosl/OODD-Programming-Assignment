@@ -5,7 +5,7 @@
 <span style="display:inline-block; width: 3%;"></span>
 <%= link_to 'Edit Profile', edit_member_path %>
 <span style="display:inline-block; width: 3%;"></span>
-<%= link_to 'Book a room', new_roomhistory_path %>
+<%= link_to 'Book a room', search_path %>
 <span style="display:inline-block; width: 3%;"></span>
 <% if current_member.admin?  %>
      <%= link_to "Manage Members", members_path %> <span style="display:inline-block; width: 3%;"></span>
@@ -27,7 +27,8 @@
       <tr>
         <td><%= @member.username %></td>
         <td><%= @member.email %></td>
-          </tr>
+
+      </tr>
   </tbody>
 </table>
 <br><br>

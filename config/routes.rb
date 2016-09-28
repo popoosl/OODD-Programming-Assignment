@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
 
+
+get '/search', to: 'rooms#search'
+post '/showroom', to: 'rooms#showroom'
+
+
   get 'sessions/new'
   get '/historybymember', to: 'roomhistories#historybymember'
   get '/schedule', to: 'rooms#schedule'
