@@ -8,6 +8,7 @@ Rails.application.routes.draw do
 
   get '/rooms', to: 'rooms#index'
 
+  get '/cancel', to: 'roomhistories#cancel'
 
   get 'sessions/new'
 #  get 'members/new'
