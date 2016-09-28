@@ -75,7 +75,11 @@ class RoomsController < ApplicationController
 
 
   def destroy
-    Room.find(params[:id]).destroy
+    @room = Room.find(params[:id])
+    Roomhistory.where(number: @room.number).each do |room|
+      room.destroy
+    end
+    @room.destroy
     flash[:success] = "Room deleted"
     redirect_to rooms_path
   end

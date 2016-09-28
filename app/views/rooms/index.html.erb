@@ -31,9 +31,9 @@
         <td>| <%= link_to "Schedule", schedule_path(:id => room.id) %></td>
 
         <td><% if current_member.admin? %>
-              | <%= link_to "History", roomhistories_path(:number => room.number) %>
-              | <%= link_to "Delete", room, method: :delete, data: { confirm: "You sure?" } %>
-          <% end %></td>
+              | <%= link_to "History", roomhistories_path(:number => room.number) %></td>
+              <td><%= button_to "Delete", room, method: :delete, data: { confirm: "You sure?" } %></td>
+          <% end %>
       </tr>
   <% end %>
   </tbody>

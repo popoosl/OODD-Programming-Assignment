@@ -13,6 +13,7 @@ post '/showroom', to: 'rooms#showroom'
 
   get '/rooms', to: 'rooms#index'
 
+  get '/cancel', to: 'roomhistories#cancel'
 
   get 'sessions/new'
 #  get 'members/new'
