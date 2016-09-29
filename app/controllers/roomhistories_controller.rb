@@ -2,7 +2,7 @@ class RoomhistoriesController < ApplicationController
 
   before_action :logged_in_member, only: [:index, :create , :cancel, :update,:new, :update ]
   protect_from_forgery with: :null_session
-
+  include SessionsHelper
 
   def new
     @roomhistory = Roomhistory.new

@@ -33,7 +33,7 @@
                 <%= link_to "Book", new_roomhistory_path(:number => @room.number,
                                                     :time_from => @booktime,
                                                       :time_to => @booktotime) %>
-              <%else %>
+                               <%else %>
                   <%= "Booked by " %><%= @book.userid %><br>
                   <%= link_to "Cancel", cancel_path(:id => @book.id) %>
               <%end%>
