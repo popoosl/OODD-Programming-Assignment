@@ -5,12 +5,12 @@
 <span style="display:inline-block; width: 3%;"></span>
 <%= link_to 'Edit Profile', edit_member_path %>
 <span style="display:inline-block; width: 3%;"></span>
-<%= link_to 'Book a room', search_path %>
+<%= link_to 'Book a Room', search_path %>
 <span style="display:inline-block; width: 3%;"></span>
 <% if current_member.admin?  %>
      <%= link_to "Manage Members", members_path %> <span style="display:inline-block; width: 3%;"></span>
-      <%= link_to "Manage rooms", rooms_path %> <span style="display:inline-block; width: 3%;"></span>
-    <%= link_to "Create new admins", new_member_path %><span style="display:inline-block; width: 3%;"></span>
+      <%= link_to "Manage Rooms", rooms_path %> <span style="display:inline-block; width: 3%;"></span>
+    <%= link_to "Create New Members", new_member_path %><span style="display:inline-block; width: 3%;"></span>
 
 <% end %>
 <span style="display:inline-block; width: 3%;"></span> <%= link_to 'Log out', logout_path %>
@@ -27,7 +27,7 @@
       <tr>
         <td><%= @member.username %></td>
         <td><%= @member.email %></td>
-        <td><%= @current_member.admin? %></td>
+        <td><%= @member.admin? %></td>
 
 
       </tr>

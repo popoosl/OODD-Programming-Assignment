@@ -35,8 +35,10 @@
                                                       :time_to => @booktotime) %>
                                <%else %>
                   <%= "Booked by " %><%= @book.userid %><br>
+                      <% if current_member.admin? || @current_member.username==@book.userid %>
                   <%= link_to "Cancel", cancel_path(:id => @book.id) %>
               <%end%>
+                  <%end%>
 
             <%else %>
               <%= "Unavailable" %><br>

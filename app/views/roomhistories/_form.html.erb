@@ -15,24 +15,31 @@
 
     <%= f.label "Room Number" %><br>
     <%= f.hidden_field :number, :value => params[:number] %>
-    <%=  params[:number] %>
+    <%=  params[:number] %><br><br>
 
     <%= f.label "From" %><br>
     <%= f.hidden_field :time_from, :value => params[:time_from] %>
-    <%=  params[:time_from] %>
+    <%=  params[:time_from] %><br><br>
 
     <%= f.label "To" %><br>
     <%= f.hidden_field :time_to, :value => params[:time_to] %>
-    <%= params[:time_to] %>
+    <%= params[:time_to] %><br><br>
 
     <%= f.hidden_field "roomid", :value => params[:roomid] %>
+    <%= params[:roomid] %>
+
 
     <%= f.label :userid %><br>
     <% if current_member.admin? %>
-        <%= f.text_field :userid, class: 'form-control' %>
+        <%= f.text_field :userid, class: 'form-control' %><br><br>
     <% else %>
-        <%= @current_member.username %>
+        <%= f.hidden_field :userid, :value => @current_member.username %>
+        <%= @current_member.username %><br><br>
     <% end %>
+
+    <%= f.label "Partners' Emails" %><br>
+    <%= f.text_field :partnersemails , :placeholder => "Enter comma seperated emails"%>
+
 
     <br><br>
     <%= f.submit yield(:button_text), class: "btn btn-primary" %>

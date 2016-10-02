@@ -13,10 +13,12 @@ class RoomhistoriesController < ApplicationController
     @roomhistory = Roomhistory.new(roomhistory_params)
     if @roomhistory.save
       flash[:success] = "Booked!"
+      UserMailer.send_mail(@current_member, @roomhistory).deliver
       redirect_to rooms_path
     else
       render 'new'
     end
+
   end
 
   def cancel
@@ -66,7 +68,7 @@ class RoomhistoriesController < ApplicationController
 
      def roomhistory_params
 
-        params.require(:roomhistory).permit(:number, :userid, :time_from, :time_to)
+        params.require(:roomhistory).permit(:number, :userid, :time_from, :time_to, :partnersemails)
       end
 
     end

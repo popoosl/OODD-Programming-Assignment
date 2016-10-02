@@ -22,7 +22,7 @@ class MembersController < ApplicationController
   def create
 
     @member = Member.new(member_params) # Not the final implementation!
-    @member.toggle!(:admin) if logged_in?
+
     if @member.save
       log_in @member
       # flash[:success] = "Welcome to the Sample App!"
