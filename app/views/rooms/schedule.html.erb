@@ -33,12 +33,12 @@
                 <%= link_to "Book", new_roomhistory_path(:number => @room.number,
                                                     :time_from => @booktime,
                                                       :time_to => @booktotime) %>
-                               <%else %>
+              <%else %>
                   <%= "Booked by " %><%= @book.userid %><br>
-                      <% if current_member.admin? || @current_member.username==@book.userid %>
-                  <%= link_to "Cancel", cancel_path(:id => @book.id) %>
-              <%end%>
+                  <% if current_member.admin? || @current_member.username==@book.userid %>
+                     <%= link_to "Cancel", cancel_path(:id => @book.id) %>
                   <%end%>
+              <%end%>
 
             <%else %>
               <%= "Unavailable" %><br>

@@ -1,11 +1,13 @@
 <%= form_for(@member) do |f| %>
     <%= render 'shared/error_messages', object: @member %>
 
+    <% if !current_member.nil?%>
     <% if current_member.admin? %>
     <%= f.radio_button(:admin, TRUE) %>
     <%= f.label(:admin, "Admin Member") %><br><br>
         <%= f.radio_button(:admin, FALSE) %>
         <%= f.label(:admin, "Normal Library Member") %><br><br>
+    <% end %>
     <% end %>
 
     <%= f.label :username %><br>
